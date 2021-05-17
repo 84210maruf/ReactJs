@@ -1,14 +1,17 @@
 import React from 'react';
-import './App.css';
-export const Header = () => {
+import logo from '../../assets/images/logo.svg';
+import reactLogo from '../../assets/images/react.svg';
+import classes from './Header.module.css';
+
+const Header = () => {
     return (
         <header>
-        <div class="container react" id="header">
+        <div className="container">
           <div>
-            <img class="logo" src="images/logo.svg" alt="Logo" />
+            <img className={classes.logo} src={logo} alt="Logo" />
           </div>
-          <div class="textRight">
-            <img src="images/react.svg" alt="React" class="reactLogo" /><strong
+          <div className="textRight">
+            <img src={reactLogo} alt="React" className={classes.reactLogo} /><strong
               >React</strong
             >
           </div>
@@ -16,3 +19,5 @@ export const Header = () => {
       </header>
     )
 }
+
+export default Header;
