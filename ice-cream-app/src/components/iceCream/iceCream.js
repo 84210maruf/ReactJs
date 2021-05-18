@@ -4,7 +4,7 @@ import classes from './iceCream.module.css';
 const iceCream = () => {
     return (
         <div>
-        <div class={classes.icecream}>
+        <div className={classes.icecream}>
           <p className={classes.cone}></p>
           {/*<p>Please start adding scoops</p> */}
           {/* Scoop componant */}
