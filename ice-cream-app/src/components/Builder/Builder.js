@@ -7,7 +7,7 @@ import TotalPrice from './TotalPrice/TotalPrice';
 const Builder = () => {
     return (
         <div>
-            <div className={classes.Builder}>
+            <div className={classes.builder}>
               <h3>Build your own Ice Cream Sundae</h3> 
 
               <Items />
@@ -16,7 +16,6 @@ const Builder = () => {
               <button type="button" className={[classes.order, 'rounded'].join(' ')}>Add to cart</button>
               
             </div>
-            {/* Modal Components */}
 
             <Modal>Hallow Modal...(Children Of Modal)</Modal>
 

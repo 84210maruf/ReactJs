@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React, { children } from 'react';
 import classes from './Modal.module.css';
 
 
@@ -8,8 +8,9 @@ const Modal = () => {
               <div className={classes.backdrop}></div>
               <div className=
               {classes.modalBody}>
-                  {Children}
+                  {children}
                 </div>
+        </div>
                 
     );
 };

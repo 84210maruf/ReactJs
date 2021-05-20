@@ -4,7 +4,7 @@ import classes from 'Scoop.module.css';
 const Scoop = () => {
     return (
        
-       <div className={[classes.Scoop, classes
+       <div className={[classes.scoop, classes
     .orange].join(' ')}></div>
     );
 };
