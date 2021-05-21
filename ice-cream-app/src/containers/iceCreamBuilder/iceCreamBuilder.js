@@ -4,12 +4,67 @@ import IceCream from '../../components/iceCream/iceCream';
 import classes from './iceCreamBuilder.module.css';
 
 class iceCreamBuilder extends Component {
+
+    state = {
+        items: {},
+        scoops: [],
+        totalPrice: 0
+    };
+
+    componentDidMount() {
+        fetch('https://react-icecream-27260-default-rtdb.asia-southeast1.firebasedatabase.app/items.json')
+        .then((Response) => Response.json())
+        .then((ResponeData) => {
+            this.setState({
+                items: ResponeData
+            });
+            console.log(ResponeData);
+        });
+    };
+    
+    // Adding scoops
+    addScoops = (scoop) => {
+        const { scoops, items } = this.state;
+        const workingScoops = [...scoops];
+        workingScoops.push(scoop);
+        this.setState((prevState) => {
+            return {
+                scoops: workingScoops,
+                totalPrice: prevState.totalPrice + items[scoop]
+            }
+        });
+        
+    };
+    // Removing scoops
+    removeScoops = (scoop) => {
+        
+        const { scoops, items } = this.state;
+        const workingScoops = [...scoops];
+        
+        const scoopIndex = workingScoops.findIndex((sc) => sc === scoop);
+        workingScoops.splice(scoopIndex, 1);
+        
+        this.setState((prevState) => {
+            return {
+                scoops: workingScoops,
+                totalPrice: prevState.totalPrice - items[scoop],
+            };
+        });
+        
+    };
+
     render() {
+        const { items, totalPrice, scoops } = this.state;
         return (
             <div className={['container', classes.container].join(' ')}>
 
-             <IceCream />
-             <Builder />
+             <IceCream items={ items } scoops={ scoops } />
+             <Builder 
+             items={ items }  
+             price={ totalPrice } 
+             add={this.addScoops} 
+             remove={this.removeScoops} 
+             scoops={ scoops } />
              
             </div>
         )

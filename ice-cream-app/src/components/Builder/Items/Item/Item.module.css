@@ -7,7 +7,7 @@
 }
 
 .quantity {
-  color: #5250507e;
+  color: rgb(5, 199, 47);
 }
 
 .quantity::after {
